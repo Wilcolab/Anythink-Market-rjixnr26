@@ -1,42 +1,26 @@
 {
-  "name": "Anythink Development Container",
+  "name": "Wilco",
   "image": "public.ecr.aws/v0a2l7y2/wilco/anythink-devcontainer:latest",
-  "forwardPorts": [3000, 3001, 5433, 27017],
+  "forwardPorts": [3000, 3001, 3009],
   "portsAttributes": {
     "3000": {
-      "label": "Backend",
-      "elevateIfNeeded": true,
-      "requireLocalPort": true,
-      "onAutoForward": "silent"
-    },
-    "3001": {
       "label": "Frontend",
       "elevateIfNeeded": true,
       "requireLocalPort": true,
       "onAutoForward": "silent"
     },
-    "5433": {
-      "label": "Database",
+    "3001": {
+      "label": "Backend",
       "elevateIfNeeded": true,
       "requireLocalPort": true,
       "onAutoForward": "silent"
     },
-    "27017": {
-      "label": "Database",
+    "3009": {
+      "label": "Wilco Agent",
       "elevateIfNeeded": true,
       "requireLocalPort": true,
       "onAutoForward": "silent"
     }
   },
-  "postCreateCommand": "/bin/bash .devcontainer/setup.sh",
-
-  "settings": {
-    "extensions.ignoreRecommendations": true,
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Visual Studio Dark",
-    "workbench.colorCustomizations": {},
-    "workbench.welcomePage.walkthroughs.openOnInstall": false,
-    "workbench.welcomePage.experimental.videoTutorials": "off",
-    "github.codespaces.defaultExtensions": []
-  }
+  "postCreateCommand": "bash .devcontainer/setup.sh"
 }
